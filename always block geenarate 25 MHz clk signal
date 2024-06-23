@@ -1,0 +1,35 @@
+`timescale 1ns / 1ps
+
+module tb();
+
+reg clk; 
+
+reg rst;
+
+initial begin
+
+    clk = 1'b0;
+
+    rst = 1'b0;
+
+end
+
+     always #20 clk = ~clk; //25 MHz
+
+initial begin
+
+    $dumpfile("dump.vcd");
+
+    $dumpvars;
+
+end
+
+initial begin
+
+     #200;
+
+     $finish();
+
+ end
+
+endmodule
